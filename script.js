@@ -453,7 +453,7 @@
 
 //! CRUD using objects
 
- // CREATE
+//! CREATE
 // let Employee = {
 //   id: 1,
 //   firstName: "John",
@@ -500,25 +500,28 @@
 //! Object.keys()
 // only get keys
 // let keys = Object.keys(obj);
-// console.log(keys);
+// console.log(keys);// ["id","name","salary"]
+
 
 
 //! Object.values()
 // only get values
 // let values = Object.values(obj);
-// console.log(values);
+// console.log(values);// [1,"John Doe",60000]
+
 
 //! Object.entries()
 // key and value dono milega but array ke form me
 // ye obj ko array me convert karne ke liye use hota h
 // let entries = Object.entries(obj);
-// console.log(entries);
+// console.log(entries);// [ ["id",1 ] , ["name","john doe"] , ["salary", 60000] ]
+
 
 
 //! Object.fromEntries()
 // ye array ko wapas se obj me convert karta hai
 // let convertedObj = Object.fromEntries(entries);
-// console.log(convertedObj);
+// console.log(convertedObj);// {id: 1, name: 'John Doe', salary: 60000}
 
 
 //! OBJECT DESTRUCTURING
@@ -639,3 +642,308 @@
 // arr2.splice(1, 3, 100);
 // console.log(arr2); // [10, 100, 50]
 
+// //! slice(startIndex, endIndex)
+// NOTE : lastIndex always get ignored
+
+// let arr4 = [10, 20, 30, 40, 50];
+
+// let x = arr4.slice(1, 4);
+// console.log(arr4); //! orginal array not modified
+// console.log(x); // return new sliced array
+
+// let y = arr4.slice(-3, -1);
+ // console.log(y); //  [30, 40]
+
+ // let z = arr4.slice(0, -1);
+ // console.log(z);// [10, 20, 30, 40]
+
+// //! sort() :Sorts an array in place. This method mutates the array and returns a reference to the same array.
+
+ // let arr5 = [8, 9, 2, 1, 4, 6];
+ // let x = arr5.sort();
+ // console.log(arr5);
+ // console.log(x); // here x is also having reference of arr5
+
+ // //! LEXOGRAPHICAL SORTING
+ // let arr6 = [90, 673, 10, 8, 38, 99, 100];
+  // arr6.sort();
+  // console.log(arr6); // [10, 100, 38, 673, 8, 90, 99]
+
+// if a-b = +ve --> swap
+ // if a-b = -ve || 0 --> dont swap
+// arr6.sort((a, b) => a - b);
+// console.log(arr6); // [8 , 10, 38, 90 , 99, 100, 673]
+
+// let arr7 = [10, 20, 30, 40];
+
+//! forEach(()=>{}) : returns undefined
+ // let val1 = arr7.forEach((ele, idx, array) => {
+//   console.log(ele, idx, array);
+//   return "Hii";
+// });
+
+// console.log("forEach", val1);
+// console.log("--------------------------");
+
+//! map(()=>{}) :  returns new array
+// let val2 = arr7.map((ele, idx, array) => {
+//   console.log(ele, idx, array);
+//   return ele + 5;
+// });
+ // console.log("map", val2); // [15,25,35,45]
+
+// let arr8 = [19, 200, 30, 356, 79, 6, 1];
+
+//! filter(()=>{})
+// let val3 = arr8.filter((ele, idx, array) => {
+//   return ele > 50;
+// });
+// console.log("Filtered array", val3); //  [200, 356, 79]
+
+//! find(()=>{})
+// let val4 = arr8.find((ele, idx, array) => {
+ //   return ele > 50;
+// });
+// console.log(val4); // 200
+
+//! findIndex(()=>{})
+// let val5 = arr8.findIndex((ele, idx, array) => {
+ //   return ele > 50;
+// });
+// console.log(val5); // 1
+
+ //! reduce(()=>{} , accumulatorValue)
+ // let arr9 = [10, 20, 30, 40, 50];
+ //--> using for loop
+// let sum = 0;
+// for (let i = 0; i < arr9.length; i++) {
+ //   sum += arr9[i];
+// }
+// console.log("sum is", sum);
+
+ //--> using reduce
+// let val6 = arr9.reduce((sum, ele, idx, array) => {
+ //   console.log(sum, ele);
+//   return sum + ele;
+// });
+ // console.log("Sum is", val6);
+
+//! JSON - Javascript object notation
+// let user = {
+ //   id: 1,
+//   username: "John",
+//   email: "john@gmail.com",
+// };
+// console.log(user);
+// console.log(typeof user);
+
+ //! convert JS Object to JSON ---> JSON.stringify()
+// let jsonData = JSON.stringify(user);
+// console.log(jsonData);
+// console.log(typeof jsonData);
+
+//! convert JSON to JS Object ---> JSON.parse()
+// let jsObject = JSON.parse(jsonData);
+ // console.log(jsObject);
+ // console.log(typeof jsObject);
+
+//! STRINGS : COLLECTION OF CHARACTERS
+// using single quotes, double quotes and backticks
+
+// let str1 = 'Hello'
+// let str2 = "World"
+// let str3 = `Hello Universe` // <-- template string
+
+ // console.log(str1, typeof str1);
+ // console.log(str2, typeof str2);
+ // console.log(str3, typeof str3);
+
+// //! ADVANTAGE OF USING TEMPLATE STRING => backticks ``
+
+ //1) multi-line string
+ //2) string interpolation <-- alternative of string concatination
+
+// let firstName = "Jonh"
+// let lastName = "Doe"
+// let age = 20
+// console.log("${age}");
+
+// let sentence = `Hii All,
+// My name is ${firstName} ${lastName}. My age is ${age}
+// `;
+// console.log(sentence);
+
+//! length property isliye brackets nhi lagate uske baad agr method hota to lagate
+// console.log(sentence.length);
+
+//! STRING METHODS
+
+//1) string.toUpperCase()
+//2) string.toLowerCase()
+
+
+//3) string.slice(startIndex, endIndex)
+// let str1 = "javascript";
+// console.log(str1.slice(0,4));// java last index ignore hota h
+// console.log(str1.slice(-10,-6));// java
+// console.log(str1.slice(-10,4));// java
+// console.log(str1.slice(-6)); //script
+// console.log(str1.slice(4)); // script
+
+// let description = `sdfyubhkjb  fhh jhviufvb jbv u fuv hkjhv ufg bvufhbiuvh i
+// kjtghu huhuhi huh biuhbiuh uhtbh ituhbhuh uifhvihuvhiu hviu hviu hiv
+// hbv huhuvhiughuhbkuhiuhiuvh iuhuv hu hu hkugh iuh iug huvhui hughvu iuv u`;
+
+// console.log(description.slice(0,51) + "...");
+// console.log(`${description.slice(0,50)}...`);
+
+
+// //! substring(stratIndex, endIndex, length) => similar to slice() but it cannot accept negative index
+
+// console.log(str1.substring(0,4)); // last index ignore hota h
+// console.log(str1.substring(-10,-6));
+
+// //! substr(startIndex, length)
+// console.log(str1.substr(0,4));//java
+// console.log(str1.substr(0));// javascript
+
+// //! split() : convert string into array
+// let str2 = "react js"
+// console.log(str2.split("")); // ['r', 'e', 'a', 'c', 't', ' ', 'j', 's']
+// console.log(str2.split()); // ['react js']
+// console.log(str2.split(" ")); // ['react', 'js']
+// console.log(str2.split("a"));// ['re', 'ct js']
+
+
+// //! toString()
+// let arr = ["a", "b", "c"];
+// console.log(arr.toString()); // a,b,c isme humesha comma lagate h agar comma nhi chahiye to join ka use karo
+// console.log(typeof(arr.toString()));// string
+
+// //! join()
+// console.log(arr.join());// a,b,c
+// console.log(arr.join(""));// abc
+// console.log(arr.join("0"));// a0b0c
+// console.log(arr.join(" ")); // a b c
+// console.log(arr.join("-")); // a-b-c
+
+
+
+// function isPalindrome(str) {
+//   let val = str.split("").reverse().join("");
+
+//   if (str === val) {
+//     console.log("It is a palindrome");
+//   } else {
+//     console.log("It is not a palindrome");
+//   }
+// }
+
+// isPalindrome("racecar");
+
+
+// //! padStart(length, fillString) and padEnd(length, fillString)
+// let phoneNo = String(1234567890) // -> 123456XXXXXX
+// phoneNo = phoneNo.slice(0, 6).padEnd(10, "X");
+// console.log(phoneNo);
+
+// console.log(phoneNo.slice(6).padStart(10, "X"));// XXXXXX7890
+
+// //! trimStart(), trimEnd(), trim()
+
+// let ename = "  Raj Kumar  ";
+// console.log(ename.trimStart());
+// console.log(ename.trimEnd());
+// console.log(ename.trim());
+
+// //! toLocaleLowerCase() and toLocaleUpperCase()
+// let str4 = "Raj Kumar";
+// console.log(str4.toLocaleLowerCase());
+// console.log(str4.toLocaleUpperCase());
+
+// //! charAt(index), charCodeAt(index)
+// console.log(str4.charAt(2));// j
+// console.log(str4.charCodeAt(3));//32
+
+//! ASYNCCHRONOUS JAVASCRIPT :- 1) setInterval 2) setTimeout
+
+// setInterval(callback, intervalTime)
+
+// console.log("Start");
+
+// let id = setInterval(function t1 () {
+//   console.log("Hiii i am T1");
+// }, 2000);
+
+// console.log("Hello world");
+
+// setTimeout(function t2 () {
+//   console.log("Byeee T2");
+//   clearInterval(id)
+// }, 8000);
+
+// console.log("End");
+
+//! example 2
+// console.log("Start");
+
+// setTimeout(function T1() {
+//   console.log("T1");
+// }, 0);
+
+// console.log("Hii");
+
+// setTimeout(function T2() {
+//   console.log("T2");
+// }, 2000);
+
+// console.log("Byee");
+
+// setTimeout(function T3() {
+//   console.log("T3");
+// }, 500);
+
+// console.log("End");
+
+//! EXAMPLE 3
+// console.log("Start");
+
+// setTimeout(function T1() {
+//   console.log("T1");
+// }, 0);
+
+// console.log("Hii");
+
+// Promise.resolve().then(function P1() {
+//   console.log("I am P1");
+// });
+
+// setTimeout(function T2() {
+//   console.log("T2");
+// }, 2000);
+
+// console.log("Byee");
+
+// setTimeout(function T3() {
+//   console.log("T3");
+// }, 500);
+
+// console.log("End");
+
+//! PROMISE
+
+let p1 = fetch("https://jsonplaceholder.typicode.com/users");
+console.log(p1);
+
+p1.then((resp) => {
+  let p2 = resp.json();
+  console.log(p2);
+
+  p2.then((data) => {
+    console.log(data);
+  });
+});
+
+p1.catch((err) => {
+  console.log("Something went wrong", err);
+});
